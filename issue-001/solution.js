@@ -5,16 +5,44 @@
  */
 
 //a function to to test data types
- function CheckDataType(num){
-    var type=typeof num;
-    if(type=='number' && num%1!=0){
-        return 'Float';//checking for float
-     }elseif(type==''){
-        return 'Variable is empty'; /// empty variable
-        
+ function dataTypeCheck(a){
+ if(typeof a!=='string' && isNaN(a)){
+     return 0;
+ }else if(typeof a == 'number'){
+        if(a%1!=0){
+            ///float
+            //If it’s a float, it multiplies by 2 and returns the results
+            return a*2;
+        }else{
+            //integer
+            ///If it’s an integer, it divides by 2 and returns the results
+            return a/2;
         }
- 
-    return typeof num;
+                
+    }else if(typeof a == 'string'){
+        //string
+        //check typcasting
+       //return Number(a);
+       var val=Number(a);
+        
+        if(parseInt(val)){
+           return Number(a);
+        }else{
+           return 'hello '+a;
+        }
+    
+    }else if(a==null){
+        return 0;
+    }else if(a=='undefined'){
+        return false;
+    }
+   
+    
+  
     
 }
-console.log(CheckDataType('fga'));
+
+ 
+ //console.log(dataTypeCheck(NaN));    
+        
+      
